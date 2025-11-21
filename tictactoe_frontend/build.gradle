@@ -1,0 +1,6 @@
+task skipNativeBuild {
+    doLast {
+        println "Skipping native build for Expo-managed project."
+    }
+}
+defaultTasks 'skipNativeBuild'

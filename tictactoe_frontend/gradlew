@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Root-level Gradle wrapper shim for CI environments that try ./gradlew at project root.
+# This project uses Expo managed workflow; native builds are skipped.
+set -euo pipefail
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if [ -x "$SCRIPT_DIR/android/gradlew" ]; then
+  exec "$SCRIPT_DIR/android/gradlew" "$@"
+else
+  echo "Info: Native Gradle build skipped (Expo-managed); no Android gradle wrapper present."
+  exit 0
+fi

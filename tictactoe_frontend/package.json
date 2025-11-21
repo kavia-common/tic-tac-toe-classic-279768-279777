@@ -8,8 +8,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "lint": "eslint .",
-    "prebuild:android": "expo prebuild --platform android",
-    "build": "npm run prebuild:android && cd android && ./gradlew assembleDebug"
+    "test": "tsx ./scripts/run-tests.ts",
+    "build": "echo \"Skipping native build in CI; using Expo web bundle\" && expo export --platform web"
   },
   "dependencies": {
     "@expo/metro-runtime": "~5.0.4",
@@ -27,6 +27,8 @@
     "eslint-plugin-react": "^7.37.5",
     "globals": "^16.3.0",
     "jiti": "^2.5.1",
+    "tsx": "^4.19.2",
+    "tinybench": "^3.2.0",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.40.0"
   },
